@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import HabitCard from '../../components/habit/HabitCard';
 import Button from '../../components/common/Button';
 import Loading from '../../components/common/Loading';
 import FirebaseService from '../../services/firebase.service';
-import { getGreeting, getRandomMotivationalQuote, formatDate, generateId } from '../../utils/helpers';
+import { getGreeting, getRandomMotivationalQuote, formatDate } from '../../utils/helpers';
 
 const DashboardScreen = () => {
   const navigation = useNavigation();
@@ -38,9 +38,9 @@ const DashboardScreen = () => {
     if (user) {
       loadHabits();
     }
-  }, [user]);
+  }, [user, loadHabits]);
 
-  const loadHabits = async () => {
+  const loadHabits = useCallback(async () => {
     if (!user) return;
     
     setLoading(true);
@@ -52,7 +52,7 @@ const DashboardScreen = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user, setHabits, setLoading]);
 
   const onRefresh = async () => {
     setRefreshing(true);

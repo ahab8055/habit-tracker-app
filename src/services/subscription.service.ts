@@ -66,7 +66,7 @@ class SubscriptionService {
   async getSubscriptionInfo(): Promise<SubscriptionInfo> {
     try {
       const customerInfo = await Purchases.getCustomerInfo();
-      const premiumEntitlement = customerInfo.entitlements.active['premium'];
+      const premiumEntitlement = customerInfo.entitlements.active.premium;
       
       if (premiumEntitlement) {
         return {
@@ -89,7 +89,7 @@ class SubscriptionService {
   }
 
   isPremiumUser(customerInfo: CustomerInfo): boolean {
-    return customerInfo.entitlements.active['premium'] !== undefined;
+    return customerInfo.entitlements.active.premium !== undefined;
   }
 
   async logOut(): Promise<void> {
