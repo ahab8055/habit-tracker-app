@@ -15,7 +15,7 @@ import HabitCard from '../../components/habit/HabitCard';
 import Button from '../../components/common/Button';
 import Loading from '../../components/common/Loading';
 import FirebaseService from '../../services/firebase.service';
-import { formatDate, generateId } from '../../utils/helpers';
+import { formatDate } from '../../utils/helpers';
 
 const HabitsScreen = () => {
   const navigation = useNavigation();
@@ -28,12 +28,10 @@ const HabitsScreen = () => {
     deleteHabit,
     getCurrentTheme, 
     isLoading,
-    setLoading 
   } = useApp();
   const theme = getCurrentTheme();
 
   const [refreshing, setRefreshing] = useState(false);
-  const [selectedHabit, setSelectedHabit] = useState<string | null>(null);
 
   const loadHabits = async () => {
     if (!user) return;

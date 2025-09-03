@@ -10,7 +10,7 @@ class FirebaseService {
 
   private initGoogleSignIn() {
     GoogleSignin.configure({
-      webClientId: 'your-web-client-id.apps.googleusercontent.com', // Replace with your web client ID
+      webClientId: '113076104913-7tu0fsbflod2opo4mcn94tuujfd39c42.apps.googleusercontent.com', // Web client ID from google-services.json
     });
   }
 
@@ -154,6 +154,8 @@ class FirebaseService {
         .where('isActive', '==', true)
         .orderBy('createdAt', 'desc')
         .get();
+      
+        console.log('Fetched habits snapshot:', snapshot); // Debugging line
 
       return snapshot.docs.map(doc => ({
         id: doc.id,

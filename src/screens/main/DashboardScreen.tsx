@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useApp } from '../../contexts/AppContext';
-import { CheckIn } from '../../types';
 import HabitCard from '../../components/habit/HabitCard';
 import Button from '../../components/common/Button';
 import Loading from '../../components/common/Loading';
@@ -34,12 +33,6 @@ const DashboardScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [quote] = useState(getRandomMotivationalQuote());
 
-  useEffect(() => {
-    if (user) {
-      loadHabits();
-    }
-  }, [user, loadHabits]);
-
   const loadHabits = useCallback(async () => {
     if (!user) return;
     
@@ -53,6 +46,12 @@ const DashboardScreen = () => {
       setLoading(false);
     }
   }, [user, setHabits, setLoading]);
+
+    useEffect(() => {
+    if (user) {
+      loadHabits();
+    }
+  }, [user, loadHabits]);
 
   const onRefresh = async () => {
     setRefreshing(true);

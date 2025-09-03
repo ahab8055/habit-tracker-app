@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Habit, CheckIn } from '../../types';
 import { useApp } from '../../contexts/AppContext';
-import { getHabitIcon, formatDate, isToday } from '../../utils/helpers';
+import { getHabitIcon, isToday } from '../../utils/helpers';
 
 interface HabitCardProps {
   habit: Habit;

@@ -14,7 +14,6 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { RootStackParamList } from '../../types';
 import { useApp } from '../../contexts/AppContext';
 import Input from '../../components/common/Input';
-import Button from '../../components/common/Button';
 import Loading from '../../components/common/Loading';
 import FirebaseService from '../../services/firebase.service';
 import NotificationService from '../../services/notification.service';

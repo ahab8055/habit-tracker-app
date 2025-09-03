@@ -12,7 +12,6 @@ import {
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types';
 import { useApp } from '../../contexts/AppContext';
-import Button from '../../components/common/Button';
 import NotificationService from '../../services/notification.service';
 
 type Props = StackScreenProps<RootStackParamList, 'Settings'>;
